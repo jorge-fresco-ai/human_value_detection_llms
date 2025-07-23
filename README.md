@@ -17,6 +17,7 @@ Desarrollar y evaluar estrategias basadas en LLMs para identificar valores human
 
 ```
 ├── DATA/                    # Datasets anotados (train, val, test)
+│   ├── data_human_value/        # Datasets finales transformados y trabajados
 │   ├── prompts/                 # Prompts diseñados para cada enfoque
 ├── CÓDIGO/                  # Código relacionado con el TFG
 │   ├── models/                  # Configs o checkpoints de modelos usados
