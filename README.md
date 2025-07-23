@@ -37,7 +37,6 @@ Basado en la teoría de Schwartz, el proyecto trabaja con 19 valores humanos agr
 | Conservation       | Security, Conformity, Tradition     |
 | Self-transcendence | Universalism, Benevolence, Humility |
 
-Más detalles disponibles en [`docs/Valores_Schwartz.md`](docs/Valores_Schwartz.md).
 
 ## 📦 Dataset
 
