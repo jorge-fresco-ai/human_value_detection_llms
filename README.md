@@ -1,7 +1,3 @@
-Aquí tienes un ejemplo de archivo `README.md` profesional y detallado para tu proyecto de detección de valores humanos con LLMs, basado en toda la documentación que has compartido:
-
----
-
 # 🧠 Human Value Detection with LLMs (ValueEval)
 
 Este proyecto tiene como objetivo detectar valores humanos en textos mediante el uso de modelos de lenguaje grandes (LLMs), en el contexto de las tareas **ValueEval @ SemEval 2023** y **CLEF 2024 (Touché Lab)**. Se basa en la teoría de Schwartz, que categoriza 19 valores humanos en 4 dimensiones principales.
