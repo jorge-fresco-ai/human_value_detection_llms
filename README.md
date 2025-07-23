@@ -32,39 +32,12 @@ Desarrollar y evaluar estrategias basadas en LLMs para identificar valores human
 
 Basado en la teoría de Schwartz, el proyecto trabaja con 19 valores humanos agrupados en 4 dimensiones:
 
-| Dimensión             | Valores Ejemplo                          |
-|----------------------|-------------------------------------------|
-| Openness to Change   | Self-direction, Stimulation               |
-| Self-enhancement     | Achievement, Power, Hedonism              |
-| Conservation         | Security, Conformity, Tradition           |
-| Self-transcendence   | Universalism, Benevolence, Humility       |
-
-**Openness to Change**
-- Self-Direction (Thought)
-- Self-Direction (Action)
-- Stimulation
-- Hedonism
-
-**Self-Enhancement**
-- Achievement
-- Power (Dominance)
-- Power (Resources)
-- Face
-
-**Conservation**
-- Security (Personal)
-- Security (Societal)
-- Tradition
-- Conformity (Rules)
-- Conformity (Interpersonal)
-- Humility
-
-**Self-Transcendence**
-- Benevolence (Dependability)
-- Benevolence (Caring)
-- Universalism (Concern)
-- Universalism (Nature)
-- Universalism (Tolerance)
+| Dimensión            | Valores                                                                  |
+|----------------------|--------------------------------------------------------------------------|
+| Openness to Change   | Self-Direction (Thought), Self-Direction (Action), Stimulation, Hedonism |
+| Self-enhancement     | Achievement, Power (Dominance),Power (Resources), Face |
+| Conservation         | Security (Personal), Security (Societal), Conformity (Rules), Conformity (Interpersonal), Tradition, Humility |
+| Self-transcendence   | Universalism (Concern), Universalism (Nature), Universalism (Tolerance), Benevolence (Dependability), Benevolence (Caring)  |
 
 ## 📦 Dataset
 
