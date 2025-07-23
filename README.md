@@ -16,13 +16,14 @@ Desarrollar y evaluar estrategias basadas en LLMs para identificar valores human
 ## 📁 Estructura del Repositorio
 
 ```
-├── data/                    # Datasets anotados (train, val, test)
-├── prompts/                 # Prompts diseñados para cada enfoque
-├── scripts/                 # Scripts de inferencia y evaluación
-├── models/                  # Configs o checkpoints de modelos usados
-├── codigo/                  # Experimentos exploratorios y EDA
-├── results/                 # Resultados (predicciones, métricas)
-├── docs/                    # Documentación extendida
+├── DATA/                    # Datasets anotados (train, val, test)
+│   ├── prompts/                 # Prompts diseñados para cada enfoque
+├── CÓDIGO/                  # Código relacionado con el TFG
+│   ├── models/                  # Configs o checkpoints de modelos usados
+│   ├── scripts/                 # Scripts de inferencia y evaluación
+│   ├── notebooks/               # Experimentos exploratorios y EDA
+│   ├── results/                 # Resultados (predicciones, métricas)
+├── DOCS/                    # Documentación extendida
 └── README.md                # Este archivo
 ```
 
