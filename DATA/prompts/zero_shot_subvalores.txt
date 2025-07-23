@@ -1,0 +1,14 @@
+
+# Zero-Shot Prompt - Subvalores (Attained/Constrained)
+
+Analiza la siguiente oración y responde qué valor humano específico de la teoría de Schwartz aparece, si alguno. 
+Además, indica si el valor está fomentado o restringido.
+
+Lista de valores: [Self-Direction (Thought), Self-Direction (Action), Stimulation, Hedonism, Achievement, Power (Dominance), Power (Resources), Face, Security (Personal), Security (Societal), Tradition, Conformity (Rules), Conformity (Interpersonal), Humility, Benevolence (Dependability), Benevolence (Caring), Universalism (Concern), Universalism (Nature), Universalism (Tolerance)]
+
+Oración: "El nuevo programa educativo fomenta la creatividad y el pensamiento independiente."
+
+Respuesta:
+Valor: Self-Direction (Thought)  
+Polaridad: Attained  
+Explicación: Se está promoviendo el pensamiento independiente y creativo.

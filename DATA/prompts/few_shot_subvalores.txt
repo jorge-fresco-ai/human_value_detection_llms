@@ -1,0 +1,39 @@
+
+# Few-Shot Prompt - Subvalores (5 ejemplos + razonamiento)
+
+Tarea: Detectar el valor humano específico presente en la oración y su polaridad.
+
+Ejemplo 1:
+Oración: "El gobierno propone recortes a los servicios sociales esenciales."
+→ Valor: Benevolence (Caring)  
+→ Polaridad: Constrained  
+→ Explicación: Los recortes afectan el bienestar de los demás.
+
+Ejemplo 2:
+Oración: "Se promueve una vida más cercana a la naturaleza en las nuevas políticas ambientales."
+→ Valor: Universalism (Nature)  
+→ Polaridad: Attained  
+→ Explicación: Se fomenta la protección del entorno natural.
+
+Ejemplo 3:
+Oración: "Los jóvenes deberían ser más humildes ante sus mayores."
+→ Valor: Humility  
+→ Polaridad: Attained  
+→ Explicación: Se incentiva el respeto y modestia frente a otros.
+
+Ejemplo 4:
+Oración: "El acceso a recursos económicos está cada vez más limitado para los sectores vulnerables."
+→ Valor: Power (Resources)  
+→ Polaridad: Constrained  
+→ Explicación: Se restringe el acceso al poder económico.
+
+Ejemplo 5:
+Oración: "Las reglas escolares deben cumplirse sin excepción."
+→ Valor: Conformity (Rules)  
+→ Polaridad: Attained  
+→ Explicación: Se promueve la adhesión a normas establecidas.
+
+Ahora analiza esta oración:
+"La población exige justicia para los más marginados de la sociedad."
+
+Respuesta:

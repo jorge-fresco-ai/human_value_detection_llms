@@ -1,0 +1,15 @@
+
+# Zero-Shot Prompt - Macro Categorías (Attained/Constrained)
+
+Analiza la siguiente oración y determina si expresa alguno de los siguientes valores humanos: 
+1) Openness to Change, 2) Self-Enhancement, 3) Conservation, 4) Self-Transcendence.
+
+Indica también si ese valor está fomentado (attained) o restringido (constrained). 
+Si no se detecta ninguno, responde "Ninguno".
+
+Oración: "La sociedad necesita adaptarse rápidamente a los cambios tecnológicos."
+
+Respuesta:
+Valor: Openness to Change  
+Polaridad: Attained  
+Explicación: La oración promueve la adaptación al cambio, lo cual refleja apertura al cambio.
