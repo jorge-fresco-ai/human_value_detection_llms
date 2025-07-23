@@ -16,14 +16,11 @@ Desarrollar y evaluar estrategias basadas en LLMs para identificar valores human
 ## 📁 Estructura del Repositorio
 
 ```
-├── data/                     # Datasets anotados (train, val, test)
+├── data/                    # Datasets anotados (train, val, test)
 ├── prompts/                 # Prompts diseñados para cada enfoque
 ├── scripts/                 # Scripts de inferencia y evaluación
-│   ├── evaluate.py
-│   ├── inference_ollama.py
-│   └── rag_pipeline.py
 ├── models/                  # Configs o checkpoints de modelos usados
-├── notebooks/               # Experimentos exploratorios y EDA
+├── codigo/                  # Experimentos exploratorios y EDA
 ├── results/                 # Resultados (predicciones, métricas)
 ├── docs/                    # Documentación extendida
 └── README.md                # Este archivo
