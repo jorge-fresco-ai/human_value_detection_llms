@@ -13,6 +13,99 @@ Desarrollar y evaluar estrategias basadas en LLMs para identificar valores human
 - Comparar el rendimiento de diferentes LLMs en Zero-Shot, Few-Shot y Documentación Extra.
 - Analizar errores, sesgos y efectividad práctica.
 
+## 📦 Requisitos previos
+
+Antes de comenzar, asegurate de tener instalados:
+
+- [`pyenv`](https://github.com/pyenv/pyenv)
+- [`poetry`](https://python-poetry.org/docs/)
+
+## 💻 Entorno recomendado: WSL + VS Code
+
+Este proyecto está pensado para ejecutarse desde un entorno **WSL (Windows Subsystem for Linux)**.
+
+🔧 **Recomendación**: Usar Visual Studio Code con la extensión oficial de WSL:
+
+1. Instalar la extensión “**WSL**” en VS Code.
+2. Presionar `Ctrl + Shift + P` y seleccionar: Open Folder in WSL
+
+## ⚙️ Configuración del entorno
+
+### 1. Clonar el repositorio y cambiar a `develop`
+
+```bash
+git clone https://github.com/tu-usuario/human_value_detection_llms.git
+cd human_value_detection_llms
+git checkout develop
+```
+
+### 2. Crear una rama basada en develop
+
+```bash
+git checkout -b feat/setup-entorno
+
+# Sube tu rama al remoto
+git push -u origin feat/setup-entorno
+```
+
+El desarrollo se hace en la rama que se crea en base a develop. Cuando está todo testeado, se hace PR a develop y si todo está bien, se hace a main. Cuantos menos PR a main mejor,
+
+### 3. Verificar versión de Python
+El archivo .python-version ya está incluido en el repo. pyenv lo leerá automáticamente y usará Python 3.11.9.
+
+Si no tenés esa versión instalada:
+
+```bash
+pyenv install 3.11.9
+```
+
+### 4. Instalar dependencias
+
+```bash
+poetry install
+```
+
+### 5. Activar entorno de dependencias
+
+```bash
+poetry shell
+```
+
+### 6. Ejecutar scripts
+
+Una vez dentro del entorno (poetry shell):
+
+```bash
+python scripts/nombre_script.py
+```
+
+O, sin activar el entorno explícitamente:
+
+```bash
+poetry run python scripts/nombre_script.py
+```
+
+### 7. Variables de entorno
+
+Este proyecto puede usar un archivo `.env` para variables sensibles.
+
+Ejemplo `.env`:
+
+```bash
+API_KEY=tu_clave_secreta
+```
+
+Y en tus scripts:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+Asegurate de que `.env` esté en `.gitignore` (ya lo está por defecto).
+
+
+
 ## 📁 Estructura del Repositorio
 
 ```
