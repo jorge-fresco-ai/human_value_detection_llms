@@ -12,7 +12,7 @@ Analizar y rediseñar el problema de detección de valores humanos desde una per
 
 ---
 
-## 🎯 Nuevos Objetivos Específicos
+## 🎯 Objetivos Específicos
 
 ### 1️⃣ Reformulación del problema: Multilabel vs. Multiclass
 
