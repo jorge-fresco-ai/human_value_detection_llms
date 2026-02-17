@@ -1,0 +1,11 @@
+
+# Prompt para estrategia RAG (con recuperación de contexto)
+
+Con base en el siguiente contexto y oración, identifica qué valor de la teoría de Schwartz está presente y su polaridad.
+
+Contexto:
+[Fragmento de teoría de valores humanos + ejemplos anotados similares]
+
+Oración: "El nuevo plan urbanístico ignora completamente las necesidades de los ancianos y discapacitados."
+
+Respuesta:

@@ -1,0 +1,34 @@
+CC-Coordinating conjunction
+CD-Cardinal number
+DT-Determiner 
+EX-Existential
+FW-Foreign word 
+IN-Subordinating preposition or conjunction 
+JJ-Adjective Adjective
+JJR-Comparative adjective 
+JJS-Superlative adjective
+LS-List marker
+MD-Modal verb
+NN-Singular noun
+NNS-Plural noun
+NNP-Proper noun singular
+NNPS-Plural proper noun 
+PDT-Predeterminer 
+POS-Possession mark
+PRP-Personal pronoun 
+PRP$-Possessive pronoun 
+RB-Adverb 
+RBR-Comparative adverb 
+RBS-Superlative adverb 
+RP-Particle
+SYM-Symbol 
+TO-“to” as preposition
+UH-Interjection
+VB-Base verb
+VBD-Verb in past tense
+VBG-Verb in gerund
+VBN-Verb in past participle
+VBP-Present tense verb (except “is”)
+VBZ-Verb in 3rd person present tense 
+WDT-Relative pronoun or determiner
+WP-Relative pronoun

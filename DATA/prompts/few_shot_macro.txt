@@ -1,0 +1,27 @@
+
+# Few-Shot Prompt - Macro Categorías (3 ejemplos + razonamiento)
+
+Tarea: Detectar el valor humano expresado en la oración y si se fomenta o se restringe.
+
+Ejemplo 1:
+Oración: "Todos deberíamos respetar las normas impuestas por la comunidad."  
+→ Valor: Conservation  
+→ Polaridad: Attained  
+→ Explicación: La oración promueve el respeto por normas, relacionado con la conservación del orden.
+
+Ejemplo 2:
+Oración: "Las personas ya no confían en el gobierno para garantizar su seguridad."  
+→ Valor: Conservation  
+→ Polaridad: Constrained  
+→ Explicación: Expresa una pérdida de confianza en la seguridad.
+
+Ejemplo 3:
+Oración: "Debemos ser más solidarios con los menos afortunados."  
+→ Valor: Self-Transcendence  
+→ Polaridad: Attained  
+→ Explicación: Se promueve la ayuda a otros, un valor altruista.
+
+Ahora analiza esta oración:
+"Muchos creen que es mejor no cuestionar las tradiciones."
+
+Respuesta:
