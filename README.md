@@ -1,7 +1,3 @@
-A continuación te propongo una **versión revisada y alineada con los nuevos objetivos científicos del TFG**, reformulando la sección de objetivos, preguntas de investigación y metodología experimental. Mantengo la estructura técnica del README, pero lo adapto para reflejar claramente el nuevo enfoque metodológico y conceptual.
-
----
-
 # 🧠 Human Value Detection with LLMs (ValueEval)
 
 Este proyecto tiene como objetivo estudiar y modelizar la detección de valores humanos en textos mediante Large Language Models (LLMs), en el contexto de **ValueEval (SemEval 2023 y CLEF 2024 – Touché Lab)**.
@@ -182,11 +178,3 @@ Este trabajo no solo evalúa modelos, sino que propone:
 ## 🧠 Créditos
 
 Trabajo desarrollado como parte de un Trabajo Fin de Grado sobre modelado avanzado de valores humanos mediante LLMs, integrando fundamentos de Psicología Social, NLP y Arquitecturas de Recuperación de Información.
-
----
-
-Si quieres, puedo ahora:
-
-* Reformularlo aún más alineado con la estructura formal del TFG (introducción–objetivos–metodología).
-* O convertir estos objetivos en una sección lista para pegar en la memoria del TFG.
-* O ayudarte a convertir esto en un plan experimental calendarizado.
