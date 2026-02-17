@@ -1,197 +1,205 @@
-# 🧠 Human Value Detection with LLMs (ValueEval)
+🧠 Human Value Detection with LLMs (ValueEval)
 
-Este proyecto tiene como objetivo detectar valores humanos en textos mediante el uso de modelos de lenguaje grandes (LLMs), en el contexto de las tareas **ValueEval @ SemEval 2023** y **CLEF 2024 (Touché Lab)**. Se basa en la teoría de Schwartz, que categoriza 19 valores humanos en 4 dimensiones principales.
+Este proyecto tiene como objetivo estudiar y modelizar la detección de valores humanos en textos mediante Large Language Models (LLMs), en el contexto de ValueEval (SemEval 2023 y CLEF 2024 – Touché Lab).
 
-## 📌 Objetivo General
+El trabajo se fundamenta en la Teoría de los Valores Humanos de Schwartz, considerando no solo la clasificación de valores, sino su estructura relacional, contextual y semántica.
 
-Desarrollar y evaluar estrategias basadas en LLMs para identificar valores humanos en frases de textos, empleando enfoques de Zero-Shot, Few-Shot con varios ejemplos y documentación extra.
+📌 Objetivo General
 
-## 🎯 Objetivos Específicos
+Analizar y rediseñar el problema de detección de valores humanos desde una perspectiva estructural, contextual y probabilística, evaluando distintos enfoques de modelado (multilabel, multiclass, RAG y modelado continuo de valores).
 
-- Clasificar frases según los valores humanos presentes (basado en la teoría de Schwartz).
-- Determinar la polaridad: si el valor está siendo promovido o restringido.
-- Comparar el rendimiento de diferentes LLMs en Zero-Shot, Few-Shot y Documentación Extra.
-- Analizar errores, sesgos y efectividad práctica.
+🎯 Nuevos Objetivos Específicos
+1️⃣ Reformulación del problema: Multilabel vs. Multiclass
 
-## 📦 Requisitos previos
+Evaluar si tratar el problema como multiclass (forzando una única etiqueta por frase) resulta más eficiente que el enfoque multilabel, asumiendo una posible pérdida del ~2% de casos con múltiples valores.
 
-Antes de comenzar, asegurate de tener instalados:
+Analizar el impacto en:
 
-- [`pyenv`](https://github.com/pyenv/pyenv)
-- [`poetry`](https://python-poetry.org/docs/)
+Macro F1
 
-## 💻 Entorno recomendado: WSL + VS Code
+Estabilidad del modelo
 
-Este proyecto está pensado para ejecutarse desde un entorno **WSL (Windows Subsystem for Linux)**.
+Interpretabilidad
 
-🔧 **Recomendación**: Usar Visual Studio Code con la extensión oficial de WSL:
+Complejidad computacional
 
-1. Instalar la extensión “**WSL**” en VS Code.
-2. Presionar `Ctrl + Shift + P` y seleccionar: Open Folder in WSL
+Determinar si la simplificación estructural compensa la pérdida de información.
 
-## ⚙️ Configuración del entorno
+2️⃣ Incorporación de RAG (Retrieval-Augmented Generation)
 
-### 1. Clonar el repositorio y cambiar a `develop`
+Construir una Knowledge Base estructurada con:
 
-```bash
-git clone https://github.com/tu-usuario/human_value_detection_llms.git
-cd human_value_detection_llms
-git checkout develop
-```
+Text chunks etiquetados
 
-### 2. Crear una rama basada en develop
+Definiciones formales de valores
 
-```bash
-git checkout -b feat/setup-entorno
+Ejemplos anotados
 
-# Sube tu rama al remoto
-git push -u origin feat/setup-entorno
-```
+Literatura académica
 
-El desarrollo se hace en la rama que se crea en base a develop. Cuando está todo testeado, se hace PR a develop y si todo está bien, se hace a main. Cuantos menos PR a main mejor,
+Recursos psicológicos y sociológicos
 
-### 3. Verificar versión de Python
-El archivo .python-version ya está incluido en el repo. pyenv lo leerá automáticamente y usará Python 3.11.9.
+Evaluar:
 
-Si no tenés esa versión instalada:
+Qué tipo de fuente mejora el rendimiento.
 
-```bash
-pyenv install 3.11.9
-```
+Qué fuentes introducen ruido.
 
-### 4. Instalar dependencias
+Impacto del tamaño del chunk.
 
-```bash
-poetry install
-```
+Impacto del tipo de embedding.
 
-### 5. Activar entorno de dependencias
+Comparar:
 
-```bash
-poetry shell
-```
+Zero-Shot tradicional
 
-### 6. Ejecutar scripts
+Few-Shot
 
-Una vez dentro del entorno (poetry shell):
+RAG con distintas configuraciones
 
-```bash
-python scripts/nombre_script.py
-```
+3️⃣ Modelado de valores como continuo circular
 
-O, sin activar el entorno explícitamente:
+En lugar de tratar los valores como etiquetas independientes, se propone:
 
-```bash
-poetry run python scripts/nombre_script.py
-```
-Por ejemplo, para ejecutar el script actual de clasificación:
+Modelarlos como posiciones en el círculo motivacional de Schwartz.
 
-```bash
-poetry run python hvdetector/analyze.py
-```
+Introducir nociones de:
 
-### 7. Variables de entorno
+Distancia angular entre valores.
 
-Este proyecto puede usar un archivo `.env` para variables sensibles.
+Probabilidad de coocurrencia basada en proximidad estructural.
 
-Ejemplo `.env`:
+Penalización diferenciada según distancia conceptual.
 
-```bash
-API_KEY=tu_clave_secreta
-```
+Explorar:
 
-Y en tus scripts:
+Si los errores entre valores cercanos deben penalizarse menos.
 
-```python
-from dotenv import load_dotenv
-load_dotenv()
-```
+Si puede modelarse el problema como predicción en un espacio continuo (embedding semántico alineado con el círculo).
 
-Asegurate de que `.env` esté en `.gitignore` (ya lo está por defecto).
+4️⃣ Modelado contextual a nivel documento
 
+Reformular el problema desde dos perspectivas:
 
+A. Enfoque jerárquico
 
-## 📁 Estructura del Repositorio
+Calcular primero los valores predominantes del documento.
 
-```
-├── DATA/                    # Datasets anotados (train, val, test)
-│   ├── data_human_value/        # Datasets finales transformados y trabajados
-│   ├── prompts/                 # Prompts diseñados para cada enfoque
-├── CÓDIGO/                  # Código relacionado con el TFG
-│   ├── models/                  # Configs o checkpoints de modelos usados
-│   ├── scripts/                 # Scripts de inferencia y evaluación
-│   ├── notebooks/               # Experimentos exploratorios y EDA
-│   ├── results/                 # Resultados (predicciones, métricas)
-├── DOCS/                    # Documentación extendida
-└── README.md                # Este archivo
-```
+Utilizar esa distribución como prior para clasificar cada frase.
 
-## 🧠 Taxonomía de Valores Humanos
+B. Enfoque alternativo
 
-Basado en la teoría de Schwartz, el proyecto trabaja con 19 valores humanos agrupados en 4 dimensiones:
+Tratar el problema directamente como detección de valores a nivel documento.
 
-| Dimensión            | Valores                                                                  |
-|----------------------|--------------------------------------------------------------------------|
-| Openness to Change   | Self-Direction (Thought), Self-Direction (Action), Stimulation, Hedonism |
-| Self-enhancement     | Achievement, Power (Dominance),Power (Resources), Face |
-| Conservation         | Security (Personal), Security (Societal), Conformity (Rules), Conformity (Interpersonal), Tradition, Humility |
-| Self-transcendence   | Universalism (Concern), Universalism (Nature), Universalism (Tolerance), Benevolence (Dependability), Benevolence (Caring)  |
+Comparar rendimiento frente al enfoque frase a frase.
 
-## 📦 Dataset
+Evaluar:
 
-- **Nombre**: ValueEval
-- **Origen**: SemEval 2023 y CLEF 2024 (Touché Lab)
-- **Idiomas**: EN, ES, FR, DE, IT, TR, HE, EL, NL, BG
-- **Anotadores**: 70+ expertos en valores humanos
-- **Tamaño**: 2648 textos segmentados en ~74,000 frases
-- **Formato**: Frase + Etiquetas binarias por valor + Polaridad (attained/constrained)
+Ganancia en coherencia semántica.
 
-## 🧪 Métodos Usados
+Reducción de inconsistencias internas.
 
-### 1. **Zero-Shot Learning**
-- Sin ejemplos, usando descripciones explícitas del valor.
-- Ejemplo de modelo: GPT-4 con instrucciones tipo CoT (Chain of Thought).
+Impacto en métricas multilabel.
 
-### 2. **Few-Shot Learning**
-- Con 1, 3, 5 y 10 ejemplos. También versión con definiciones + ejemplos.
-- Modelos evaluados: ChatGPT, Claude, Gemini, LLaMA.
+📦 Dataset
 
-## ⚙️ Herramientas y Frameworks
+Nombre: ValueEval
 
-- **LLMs**: OpenAI, Claude, LLaMA, Gemini, Mistral, Phi, etc.
-- **Frameworks LLMs**: Ollama
-- **Agentes**: LangGraph, LangChain, CrewAI
-- **Evaluación**: scikit-learn, pandas
-- **Entorno local**: Ollama, Docker, FastAPI
+Origen: SemEval 2023 y CLEF 2024 (Touché Lab)
 
-## 📊 Métricas de Evaluación
+Idiomas: EN, ES, FR, DE, IT, TR, HE, EL, NL, BG
 
-- **Macro F1-Score** (principal)
-- Precisión, Recall, Matriz de Confusión
-- Análisis por clase (valor) y polaridad
-- Tiempo de inferencia en RAG vs otros métodos
+Tamaño: ~74.000 frases
 
-## ❓ Preguntas Clave
+Anotación:
 
-- ¿Qué LLM es más preciso y generalizable en esta tarea?
-- ¿Cuál es el impacto del número de ejemplos en Few-Shot?
-- ¿Cómo mitigar sesgos hacia valores frecuentes?
-- ¿Qué diseño de prompt optimiza el rendimiento?
+19 valores humanos (teoría de Schwartz)
 
-## 📌 Resultados Relevantes
+Polaridad: attained / constrained
 
-- GPT-4 obtuvo mejor rendimiento en polaridad (subtarea 2).
-- Modelos multilingües como XLM-RoBERTa destacaron en detección (subtarea 1).
-- El uso de prompts contextuales mejoró métricas frente a los directos.
+Posibilidad de múltiples valores por frase
 
-## 📚 Referencias
+🧪 Líneas Experimentales
+🔬 Línea 1: Multilabel vs Multiclass
 
-- ValueEval @ CLEF 2024: [Enlace](https://touche.webis.de)
-- ValueEval @ SemEval 2023: [Enlace](https://semeval.github.io/)
-- Schwartz Value Theory: [Wikipedia](https://en.wikipedia.org/wiki/Theory_of_Basic_Human_Values)
+Baselines clásicos.
 
-## 🧠 Créditos
+LLM prompting estructurado.
 
-Desarrollado como parte de un Trabajo Fin de Grado sobre la Detección de Valores Humanos mediante LLMs. Basado en los trabajos de Touché 2024 y SemEval 2023, junto con fundamentos teóricos en Psicología Social.
+Evaluación comparativa estadística.
 
-----
+🔬 Línea 2: RAG
+
+Comparativa por tipo de fuente.
+
+Análisis de ruido vs señal.
+
+Evaluación de latencia vs mejora métrica.
+
+🔬 Línea 3: Modelado continuo
+
+Representación vectorial de valores.
+
+Penalización basada en distancia angular.
+
+Experimentos con métricas suavizadas.
+
+🔬 Línea 4: Modelado jerárquico documento-frase
+
+Pipeline en dos etapas.
+
+Evaluación frente a enfoque plano.
+
+📊 Métricas de Evaluación
+
+Macro F1 (principal)
+
+Micro F1
+
+Hamming Loss
+
+Exact Match Ratio
+
+Matriz de Confusión estructural
+
+Métrica suavizada basada en distancia en el círculo de Schwartz (propuesta experimental)
+
+❓ Preguntas de Investigación
+
+¿Es justificable simplificar el problema a multiclass?
+
+¿Qué tipo de conocimiento externo mejora realmente un LLM?
+
+¿Puede modelarse la estructura circular de valores para reducir errores conceptuales?
+
+¿El contexto documental mejora la coherencia en la detección?
+
+¿Se comportan los LLMs mejor cuando se respeta la estructura psicológica subyacente?
+
+⚙️ Herramientas
+
+LLMs: OpenAI, Claude, Gemini, LLaMA, Mistral, Phi
+
+Frameworks: LangChain, LangGraph
+
+Vector DB: FAISS / Chroma
+
+Evaluación: scikit-learn, pandas
+
+Infraestructura: Docker, Ollama
+
+📌 Contribución Esperada
+
+Este trabajo no solo evalúa modelos, sino que propone:
+
+Una reformulación estructural del problema.
+
+Un análisis de simplificación multiclass.
+
+Un enfoque continuo basado en teoría psicológica.
+
+Una evaluación crítica del uso real de RAG en tareas de valores humanos.
+
+🧠 Créditos
+
+Trabajo desarrollado como parte de un Trabajo Fin de Grado sobre modelado avanzado de valores humanos mediante LLMs, integrando fundamentos de Psicología Social, NLP y Arquitecturas de Recuperación de Información.
