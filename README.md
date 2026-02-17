@@ -1,205 +1,192 @@
-🧠 Human Value Detection with LLMs (ValueEval)
+A continuación te propongo una **versión revisada y alineada con los nuevos objetivos científicos del TFG**, reformulando la sección de objetivos, preguntas de investigación y metodología experimental. Mantengo la estructura técnica del README, pero lo adapto para reflejar claramente el nuevo enfoque metodológico y conceptual.
 
-Este proyecto tiene como objetivo estudiar y modelizar la detección de valores humanos en textos mediante Large Language Models (LLMs), en el contexto de ValueEval (SemEval 2023 y CLEF 2024 – Touché Lab).
+---
 
-El trabajo se fundamenta en la Teoría de los Valores Humanos de Schwartz, considerando no solo la clasificación de valores, sino su estructura relacional, contextual y semántica.
+# 🧠 Human Value Detection with LLMs (ValueEval)
 
-📌 Objetivo General
+Este proyecto tiene como objetivo estudiar y modelizar la detección de valores humanos en textos mediante Large Language Models (LLMs), en el contexto de **ValueEval (SemEval 2023 y CLEF 2024 – Touché Lab)**.
+
+El trabajo se fundamenta en la **Teoría de los Valores Humanos de Schwartz**, considerando no solo la clasificación de valores, sino su estructura relacional, contextual y semántica.
+
+---
+
+## 📌 Objetivo General
 
 Analizar y rediseñar el problema de detección de valores humanos desde una perspectiva estructural, contextual y probabilística, evaluando distintos enfoques de modelado (multilabel, multiclass, RAG y modelado continuo de valores).
 
-🎯 Nuevos Objetivos Específicos
-1️⃣ Reformulación del problema: Multilabel vs. Multiclass
+---
 
-Evaluar si tratar el problema como multiclass (forzando una única etiqueta por frase) resulta más eficiente que el enfoque multilabel, asumiendo una posible pérdida del ~2% de casos con múltiples valores.
+## 🎯 Nuevos Objetivos Específicos
 
-Analizar el impacto en:
+### 1️⃣ Reformulación del problema: Multilabel vs. Multiclass
 
-Macro F1
+* Evaluar si tratar el problema como **multiclass** (forzando una única etiqueta por frase) resulta más eficiente que el enfoque **multilabel**, asumiendo una posible pérdida del ~2% de casos con múltiples valores.
+* Analizar el impacto en:
 
-Estabilidad del modelo
+  * Macro F1
+  * Estabilidad del modelo
+  * Interpretabilidad
+  * Complejidad computacional
+* Determinar si la simplificación estructural compensa la pérdida de información.
 
-Interpretabilidad
+---
 
-Complejidad computacional
+### 2️⃣ Incorporación de RAG (Retrieval-Augmented Generation)
 
-Determinar si la simplificación estructural compensa la pérdida de información.
+* Construir una **Knowledge Base estructurada** con:
 
-2️⃣ Incorporación de RAG (Retrieval-Augmented Generation)
+  * Text chunks etiquetados
+  * Definiciones formales de valores
+  * Ejemplos anotados
+  * Literatura académica
+  * Recursos psicológicos y sociológicos
 
-Construir una Knowledge Base estructurada con:
+* Evaluar:
 
-Text chunks etiquetados
+  * Qué tipo de fuente mejora el rendimiento.
+  * Qué fuentes introducen ruido.
+  * Impacto del tamaño del chunk.
+  * Impacto del tipo de embedding.
 
-Definiciones formales de valores
+* Comparar:
 
-Ejemplos anotados
+  * Zero-Shot tradicional
+  * Few-Shot
+  * RAG con distintas configuraciones
 
-Literatura académica
+---
 
-Recursos psicológicos y sociológicos
-
-Evaluar:
-
-Qué tipo de fuente mejora el rendimiento.
-
-Qué fuentes introducen ruido.
-
-Impacto del tamaño del chunk.
-
-Impacto del tipo de embedding.
-
-Comparar:
-
-Zero-Shot tradicional
-
-Few-Shot
-
-RAG con distintas configuraciones
-
-3️⃣ Modelado de valores como continuo circular
+### 3️⃣ Modelado de valores como continuo circular
 
 En lugar de tratar los valores como etiquetas independientes, se propone:
 
-Modelarlos como posiciones en el círculo motivacional de Schwartz.
+* Modelarlos como posiciones en el **círculo motivacional de Schwartz**.
+* Introducir nociones de:
 
-Introducir nociones de:
-
-Distancia angular entre valores.
-
-Probabilidad de coocurrencia basada en proximidad estructural.
-
-Penalización diferenciada según distancia conceptual.
+  * Distancia angular entre valores.
+  * Probabilidad de coocurrencia basada en proximidad estructural.
+  * Penalización diferenciada según distancia conceptual.
 
 Explorar:
 
-Si los errores entre valores cercanos deben penalizarse menos.
+* Si los errores entre valores cercanos deben penalizarse menos.
+* Si puede modelarse el problema como predicción en un espacio continuo (embedding semántico alineado con el círculo).
 
-Si puede modelarse el problema como predicción en un espacio continuo (embedding semántico alineado con el círculo).
+---
 
-4️⃣ Modelado contextual a nivel documento
+### 4️⃣ Modelado contextual a nivel documento
 
 Reformular el problema desde dos perspectivas:
 
-A. Enfoque jerárquico
+**A. Enfoque jerárquico**
 
-Calcular primero los valores predominantes del documento.
+* Calcular primero los valores predominantes del documento.
+* Utilizar esa distribución como prior para clasificar cada frase.
 
-Utilizar esa distribución como prior para clasificar cada frase.
+**B. Enfoque alternativo**
 
-B. Enfoque alternativo
-
-Tratar el problema directamente como detección de valores a nivel documento.
-
-Comparar rendimiento frente al enfoque frase a frase.
+* Tratar el problema directamente como detección de valores a nivel documento.
+* Comparar rendimiento frente al enfoque frase a frase.
 
 Evaluar:
 
-Ganancia en coherencia semántica.
+* Ganancia en coherencia semántica.
+* Reducción de inconsistencias internas.
+* Impacto en métricas multilabel.
 
-Reducción de inconsistencias internas.
+---
 
-Impacto en métricas multilabel.
+## 📦 Dataset
 
-📦 Dataset
+* **Nombre**: ValueEval
+* **Origen**: SemEval 2023 y CLEF 2024 (Touché Lab)
+* **Idiomas**: EN, ES, FR, DE, IT, TR, HE, EL, NL, BG
+* **Tamaño**: ~74.000 frases
+* **Anotación**:
 
-Nombre: ValueEval
+  * 19 valores humanos (teoría de Schwartz)
+  * Polaridad: attained / constrained
+  * Posibilidad de múltiples valores por frase
 
-Origen: SemEval 2023 y CLEF 2024 (Touché Lab)
+---
 
-Idiomas: EN, ES, FR, DE, IT, TR, HE, EL, NL, BG
+## 🧪 Líneas Experimentales
 
-Tamaño: ~74.000 frases
+### 🔬 Línea 1: Multilabel vs Multiclass
 
-Anotación:
+* Baselines clásicos.
+* LLM prompting estructurado.
+* Evaluación comparativa estadística.
 
-19 valores humanos (teoría de Schwartz)
+### 🔬 Línea 2: RAG
 
-Polaridad: attained / constrained
+* Comparativa por tipo de fuente.
+* Análisis de ruido vs señal.
+* Evaluación de latencia vs mejora métrica.
 
-Posibilidad de múltiples valores por frase
+### 🔬 Línea 3: Modelado continuo
 
-🧪 Líneas Experimentales
-🔬 Línea 1: Multilabel vs Multiclass
+* Representación vectorial de valores.
+* Penalización basada en distancia angular.
+* Experimentos con métricas suavizadas.
 
-Baselines clásicos.
+### 🔬 Línea 4: Modelado jerárquico documento-frase
 
-LLM prompting estructurado.
+* Pipeline en dos etapas.
+* Evaluación frente a enfoque plano.
 
-Evaluación comparativa estadística.
+---
 
-🔬 Línea 2: RAG
+## 📊 Métricas de Evaluación
 
-Comparativa por tipo de fuente.
+* Macro F1 (principal)
+* Micro F1
+* Hamming Loss
+* Exact Match Ratio
+* Matriz de Confusión estructural
+* Métrica suavizada basada en distancia en el círculo de Schwartz (propuesta experimental)
 
-Análisis de ruido vs señal.
+---
 
-Evaluación de latencia vs mejora métrica.
+## ❓ Preguntas de Investigación
 
-🔬 Línea 3: Modelado continuo
+1. ¿Es justificable simplificar el problema a multiclass?
+2. ¿Qué tipo de conocimiento externo mejora realmente un LLM?
+3. ¿Puede modelarse la estructura circular de valores para reducir errores conceptuales?
+4. ¿El contexto documental mejora la coherencia en la detección?
+5. ¿Se comportan los LLMs mejor cuando se respeta la estructura psicológica subyacente?
 
-Representación vectorial de valores.
+---
 
-Penalización basada en distancia angular.
+## ⚙️ Herramientas
 
-Experimentos con métricas suavizadas.
+* LLMs: OpenAI, Claude, Gemini, LLaMA, Mistral, Phi
+* Frameworks: LangChain, LangGraph
+* Vector DB: FAISS / Chroma
+* Evaluación: scikit-learn, pandas
+* Infraestructura: Docker, Ollama
 
-🔬 Línea 4: Modelado jerárquico documento-frase
+---
 
-Pipeline en dos etapas.
-
-Evaluación frente a enfoque plano.
-
-📊 Métricas de Evaluación
-
-Macro F1 (principal)
-
-Micro F1
-
-Hamming Loss
-
-Exact Match Ratio
-
-Matriz de Confusión estructural
-
-Métrica suavizada basada en distancia en el círculo de Schwartz (propuesta experimental)
-
-❓ Preguntas de Investigación
-
-¿Es justificable simplificar el problema a multiclass?
-
-¿Qué tipo de conocimiento externo mejora realmente un LLM?
-
-¿Puede modelarse la estructura circular de valores para reducir errores conceptuales?
-
-¿El contexto documental mejora la coherencia en la detección?
-
-¿Se comportan los LLMs mejor cuando se respeta la estructura psicológica subyacente?
-
-⚙️ Herramientas
-
-LLMs: OpenAI, Claude, Gemini, LLaMA, Mistral, Phi
-
-Frameworks: LangChain, LangGraph
-
-Vector DB: FAISS / Chroma
-
-Evaluación: scikit-learn, pandas
-
-Infraestructura: Docker, Ollama
-
-📌 Contribución Esperada
+## 📌 Contribución Esperada
 
 Este trabajo no solo evalúa modelos, sino que propone:
 
-Una reformulación estructural del problema.
+* Una reformulación estructural del problema.
+* Un análisis de simplificación multiclass.
+* Un enfoque continuo basado en teoría psicológica.
+* Una evaluación crítica del uso real de RAG en tareas de valores humanos.
 
-Un análisis de simplificación multiclass.
+---
 
-Un enfoque continuo basado en teoría psicológica.
-
-Una evaluación crítica del uso real de RAG en tareas de valores humanos.
-
-🧠 Créditos
+## 🧠 Créditos
 
 Trabajo desarrollado como parte de un Trabajo Fin de Grado sobre modelado avanzado de valores humanos mediante LLMs, integrando fundamentos de Psicología Social, NLP y Arquitecturas de Recuperación de Información.
+
+---
+
+Si quieres, puedo ahora:
+
+* Reformularlo aún más alineado con la estructura formal del TFG (introducción–objetivos–metodología).
+* O convertir estos objetivos en una sección lista para pegar en la memoria del TFG.
+* O ayudarte a convertir esto en un plan experimental calendarizado.
